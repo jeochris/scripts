@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v2
       
     - name: Push to linux repository
-      run:
+      run: |
         cd linux
         git remote add myjjh https://github.com/jeochris/linux
         git push myjjh csi2115-f21
