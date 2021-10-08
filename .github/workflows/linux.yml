@@ -1,0 +1,34 @@
+name: Linux Kernel Build
+
+on:
+  push:
+    paths:
+      - 'linux'
+      
+env:
+  sub_commit: tmp
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Submodule
+      uses: actions/checkout@v2
+      with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+      
+    - name: Get Commit Number
+      run:
+          sub_commit=${{ github.job }}
+          echo sub_commit
+          
+    - name: Build Linux
+      run:
+        wget -d https://github.com/alsdyd98/linux/archive/$sub_commit.zip
+        unzip $sub_commit.zip
+        ./build-linux.sh linux-$commit_number tinyconfig
+        
+      
