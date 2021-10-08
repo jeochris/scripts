@@ -1,0 +1,17 @@
+name: Compile test Directory
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'test/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: New Compilation
+      run: make -C test
