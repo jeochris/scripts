@@ -2,7 +2,6 @@ name: Compile test Directory
 
 on:
   push:
-    branches: [ main ]
     paths:
       - 'test/**'
 
