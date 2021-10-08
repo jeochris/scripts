@@ -17,6 +17,7 @@ jobs:
       run: |
         cd linux
         git remote add myjjh https://github.com/jeochris/linux
+        git fetch myjjh
         git push myjjh csi2115-f21
         cd ..
       
