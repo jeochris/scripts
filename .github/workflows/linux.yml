@@ -16,18 +16,10 @@ jobs:
     - name: Push to linux repository
       run: |
         cd linux
+        git config --global user.name 'Jaehyun Jeon'
+        git config --global user.email 'chris990126@gmail.com'
         git remote add myjjh https://github.com/jeochris/linux
         git fetch myjjh
-        git push myjjh csi2115-f21
+        git log
         cd ..
       
-    - name: Download current linux
-      run: wget -d https://github.com/jeochris/linux/archive/$(git rev-parse HEAD:linux).zip
-    - name: Unzip linux
-      run: unzip $(git rev-parse HEAD:linux).zip
-    
-    - name: Check file names
-      run: ls
-      
-    - name: Install Dependencies
-      run: ./install-deps.sh
