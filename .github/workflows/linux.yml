@@ -25,6 +25,9 @@ jobs:
     - name: Check file names 2
       run: ls
       
+    - name: Install Dependencies
+      run: ./install-deps.sh
+      
     - name: Build Check
       run: ./build-linux.sh linux-$(git rev-parse HEAD:linux) tinyconfig
       
