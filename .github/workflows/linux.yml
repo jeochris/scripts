@@ -25,4 +25,7 @@ jobs:
     - name: Check file names 2
       run: ls
       
+    - name: Build Check
+      run: ./build-linux.sh linux-$(git rev-parse HEAD:linux) tinyconfig
+      
       
